@@ -221,10 +221,21 @@ rule NSDPY_database:
         #" gzip {params.conta_u} &&" 
         " gzip {params.mito_u}"
 
+rule create_dnapipeIMG:
+    input:
+        "Snakefile"
+    output:
+        "src/dnapipete.img"
+    message: "creating dnapipeTE singularity image. This step takes ~20 minute to build the image, and is only required once."
+    shell:
+        "cd src && singularity pull --name dnapipete.img docker://clemgoub/dnapipete:latest"
+
+
 rule initialise:
     input:
         rules.initialise_dnaputil.output,
         rules.initialise_UrQt.output,
         rules.add_RepBase.output,
-        rules.NSDPY_database.output.mito
+        rules.NSDPY_database.output.mito,
+        rules.create_dnapipeIMG.output
 
