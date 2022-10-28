@@ -1,0 +1,1 @@
+(Bacteria[orgn] OR Archaea[orgn] OR Fungi[orgn]) AND (reference_genome[filter] OR representative_genome[filter])

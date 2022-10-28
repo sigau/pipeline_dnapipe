@@ -1,0 +1,1 @@
+srcdb_refseq[PROP] AND (chloroplast[filter] OR mitochondrion[filter])

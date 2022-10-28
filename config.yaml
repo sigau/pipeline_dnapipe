@@ -1,0 +1,6 @@
+short_reads: "data/short_reads/test.fastq"
+genome_size: "199491796"
+sampling_size: "0.25"
+out_dir: "echantillio"
+species: "D_pseudoobscura"
+acc_num: "SRR11813283"

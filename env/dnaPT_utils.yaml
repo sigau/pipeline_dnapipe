@@ -1,0 +1,10 @@
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - r-base
+  - r-ggplot
+  - r-tidyr
+  - r-cowplot
