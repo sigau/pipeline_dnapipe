@@ -25,7 +25,7 @@ This rule will :
 - Create a new RepeatMasker library with RepBase
 - Create dnapipeTE singularity image 
 ```
-snakemake initialize -j 5
+snakemake initialise -j 5
 ```
 ## Run the pipeline 
 ```
