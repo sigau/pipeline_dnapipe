@@ -188,10 +188,21 @@ rule initialise_UrQt:
     shell:
         "cd src && git clone https://github.com/l-modolo/UrQt && cd UrQt && make"
 
+rule create_dnapipeIMG:
+    input:
+        "Snakefile"
+    output:
+        "src/dnapipete.img"
+    message: "creating dnapipeTE singularity image. This step takes ~20 minute to build the image, and is only required once."
+    shell:
+        "cd src && singularity pull --name dnapipete.img docker://clemgoub/dnapipete:latest"
+
 rule add_RepBase:
     input:
         h5="RepBase/tmp_repbase/Dfam.h5",
-        embl="RepBase/tmp_repbase/RMRBSeqs.embl"
+        embl="RepBase/tmp_repbase/RMRBSeqs.embl",
+        dnapipe=rules.create_dnapipeIMG.output
+
     output:
         "RepBase/new_lib/RepeatMaskerLib.h5"
     message: "creating a new RepeatMasker library with RepBase"
@@ -220,15 +231,6 @@ rule NSDPY_database:
         " nsdpy -r '{params.cmd_mito}' && cp NSDPY_results/*/sequences.fasta {params.mito_u} && rm -rf NSDPY_results && "
         #" gzip {params.conta_u} &&" 
         " gzip {params.mito_u}"
-
-rule create_dnapipeIMG:
-    input:
-        "Snakefile"
-    output:
-        "src/dnapipete.img"
-    message: "creating dnapipeTE singularity image. This step takes ~20 minute to build the image, and is only required once."
-    shell:
-        "cd src && singularity pull --name dnapipete.img docker://clemgoub/dnapipete:latest"
 
 
 rule initialise:
