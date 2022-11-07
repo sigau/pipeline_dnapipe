@@ -5,6 +5,6 @@ channels:
 
 dependencies:
   - r-base
-  - r-ggplot
+  - r-ggplot2
   - r-tidyr
   - r-cowplot
