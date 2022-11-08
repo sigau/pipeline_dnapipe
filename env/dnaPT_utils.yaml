@@ -2,9 +2,11 @@
 channels:
   - conda-forge
   - bioconda
-
+  - r
+  
 dependencies:
   - r-base
   - r-ggplot2
   - r-tidyr
   - r-cowplot
+  - r-tidyverse
