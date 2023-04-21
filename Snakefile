@@ -11,6 +11,20 @@ rule curing:
         expand("{out_dir}/trim_reads/trim_reads.fastq.gz", out_dir=config["out_dir"])
     threads: 
         cpu_count()
+    log: expand("{out_dir}/logs/triming_reads/fastp.log", out_dir=config["out_dir"])
+    message: "triming the short-reads with fastp"
+    conda:
+        "env/fastp.yaml"
+    shell:
+        "(fastp -i {input} -o {output} --length_required 75  ) 2> {log}"
+
+rule curing_URQT:
+    input:
+        config["short_reads"]
+    output:
+        expand("{out_dir}/trim_reads/trim_reads.fastq.gz", out_dir=config["out_dir"])
+    threads: 
+        cpu_count()
     log: expand("{out_dir}/logs/triming_reads/UrQt.log", out_dir=config["out_dir"])
     message: "triming the short-reads with UrQt"
     shell:
