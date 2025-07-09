@@ -52,3 +52,8 @@ snakemake all --use-conda -j 16 -C genome_size=$GENOME_SIZE \
 
 ## DAG of the pipeline
 ![dag.svg](dag.svg)
+
+## Related publication
+This pipeline was used in the following study:
+Marino Alba, Debaecker Gautier, Fiston-Lavier Anna-Sophie, Haudry Annabelle, Nabholz Benoit (2024) Effective population size does not explain long-term variation in genome size and transposable element content in animals *eLife* 13:RP100574
+https://doi.org/10.7554/eLife.100574.2
